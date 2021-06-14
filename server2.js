@@ -39,7 +39,7 @@ app.get('/message', (req, res) => {
 });
 
 app.listen(port, () => {
-    var server = new grpc.Server();
+    const server = new grpc.Server();
     server.addService(hello_proto.Greeter.service, { sayHello: sayHello });
     server.bindAsync('127.0.0.1:50051', grpc.ServerCredentials.createInsecure(), () => {
         console.log('server grpc start at port 50051')
